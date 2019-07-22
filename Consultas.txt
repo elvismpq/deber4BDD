@@ -1,0 +1,14 @@
+Consulta 1.- mediante esta consulta se muestra todas las personas de la relacion
+match (n:Persona) return n;
+
+Consulta 2.- mediante esta consulta muestra las personas que conocen el Parque Nacional Cotopaxi
+match (p:Persona)-[r:Conoce]->(l:Lugar) where l.nombre="Parque Nacional Cotopaxi" return p;
+
+Consulta 3.- mediante esta consulta muestra las peliculas que has visto Elvis Pérez
+match (p:Persona)-[r:RELATED_TO]->(pe:Pelicula) where p.nombre="Elvis Pérez" return pe;
+
+Consulta 4.- mediante esta consulta indica cuantas personas tienen perros
+match (p:Persona)-[r:RELATED_TO]->(m:Mascota) where m.animal="perro" return distinct count(p) as numPersonas;
+
+Consulta 5.- mediante esta consulta muestra las personas que son primos
+match (p:Persona)-[r:Primo]->(pe:Persona) return p,pe;
